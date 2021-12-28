@@ -1,0 +1,14 @@
+.button-search:focus {
+    outline: 0;
+    box-shadow: none !important;
+}
+
+.button-search:hover i {
+    color: #916841;
+}
+
+.search .form-control:focus {
+    border-color: none;
+    outline: 0;
+    box-shadow: none;
+}
