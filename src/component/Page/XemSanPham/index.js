@@ -205,6 +205,7 @@ function XemSanPham(props) {
       }
     }
   }, [data, dataSubmit]);
+
   function showModals() {
     const { setterToken } = CreateModal;
     var token = localStorage.getItem("tokenTC");
@@ -228,7 +229,7 @@ function XemSanPham(props) {
           );
           dataTamToken.soluong =
             parseInt(dataTamToken.soluong) + parseInt(tam[0].soluong);
-          
+
           if (i !== -1) {
             const newlist = [
               ...dd.slice(0, i),
@@ -244,7 +245,6 @@ function XemSanPham(props) {
       } else {
         d.push(dataTamToken);
       }
-
       localStorage.setItem("product", JSON.stringify(d));
       setterToken(d);
       const { showModal } = CreateModal;
