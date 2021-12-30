@@ -148,6 +148,13 @@
     background-color: #1c1c1c;
 }
 
+.owl-carousel .owl-item img {
+    width: 224.66px !important;
+    height:  224.66px !important;
+    object-fit: contain;
+}
+
+
 @media screen and (min-width: 1px)and(max-width: 739px) {
     .owl-theme .owl-nav {
         display: none;

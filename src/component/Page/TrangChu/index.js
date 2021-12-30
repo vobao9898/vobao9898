@@ -114,7 +114,7 @@ function TrangChu(props) {
             </Link>
           </div>
         </div>
-        <div className="th-prodcut">
+        <div className="th-prodcut mt-5">
           {ListLoaiGiay.length > 0 &&
           dataLGS.length > 0 &&
           ListGiay.length > 0 ? (
@@ -171,7 +171,7 @@ function TrangChu(props) {
                 dataTLG.push(g);
               });
               return (
-                <div key={item.id} className="newProduct">
+                <div key={item.id} className="newProduct mt-3">
                   <div className="title-newProdcut">
                     <Link to="/SanPhamMoi" className="title-hp">
                       {item.ten_loai_giay}

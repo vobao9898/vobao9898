@@ -11,6 +11,7 @@ function DangNhap(props) {
 	const { email, password } = data;
 	const history = useHistory();
 	function submit() {
+		localStorage.removeItem('product');
 		api.loginEmail(data)
 			.then((response) => {
 				if (response.status === 200) {
@@ -39,6 +40,7 @@ function DangNhap(props) {
 			});
 	}
 	const responseFacebook = (response) => {
+		localStorage.removeItem('product');
 		api.getFBID({ facebook_id: response.id })
 			.then((responses) => {
 				if (responses.status === 200) {

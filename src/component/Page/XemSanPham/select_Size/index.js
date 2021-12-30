@@ -8,7 +8,7 @@ function SelectSize(props) {
 		arrSize.map((arr, index) => {
 			if (parseInt(e.target.value) === arr.ten_size) {
 				props.selectSizes({
-					id_size: arr.ten_size,
+					id_size: arr.id_size,
 					ten_size: arr.ten_size,
 					gia_ban: arr.gia_ban,
 					soluong: arr.so_luong,
@@ -21,7 +21,7 @@ function SelectSize(props) {
 	}, [dataSubmits]);
 	return (
 		<div className="select-size mt-3">
-			<div className="select-size__header">Màu sắc:</div>
+			<div className="select-size__header">Size:</div>
 			<div className="select-size__size">
 				<div className="select-swap">
 					{arrSize.map((arr, index) => {

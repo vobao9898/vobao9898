@@ -14,6 +14,7 @@ const reducer = (state = initialState, action) => {
                     showmodal: true,
                 };
             }
+            
         case types.HIDE_MODAL:
             {
                 return {
@@ -21,6 +22,7 @@ const reducer = (state = initialState, action) => {
                     showmodal: false,
                 };
             }
+
         case types.SETTER_TOKEN:
             {
                 const { data } = action.payload;

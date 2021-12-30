@@ -23,6 +23,7 @@ function DatHang(props) {
   const { token, CreateModal } = props;
   const { setterToken } = CreateModal;
   const [dataSize, setDataSize] = useState([]);
+  const [datas, setDatas] = useState([]);
   var t = 0;
   function submit() {
     apiDH
@@ -32,6 +33,7 @@ function DatHang(props) {
           var id = response.data.data.insertId;
           token.map((i, index) => {
             var tam = dataSize;
+            console.log(dataSize)
             apiCDH
               .Them({
                 id_giay: i.id_giay,
@@ -74,8 +76,12 @@ function DatHang(props) {
   }
 
   useEffect(() => {
-    const tokenss = localStorage.getItem("tokenTC");
     const product = JSON.parse(localStorage.getItem("product"));
+    setDatas(product);
+  }, [])
+
+  useEffect(() => {
+    const tokenss = localStorage.getItem("tokenTC");
     if (tokenss) {
       try {
         var decoded = jwt.verify(tokenss, "qwe1234");
@@ -91,6 +97,11 @@ function DatHang(props) {
 
       token.map((i) => {
         var d = dataSize;
+        console.log({
+          id_giay: i.id_giay,
+          id_mau_sac: i.id_mau_sac,
+          id_size: i.id_size,
+        })
         apiSize
           .getSize({
             id_giay: i.id_giay,
@@ -98,6 +109,7 @@ function DatHang(props) {
             id_size: i.id_size,
           })
           .then((response) => {
+            console.log(response)
             if (response.data.success === 1) {
               if (response.data) {
                 d.push(response.data.data[0]);
@@ -112,6 +124,7 @@ function DatHang(props) {
       });
     }
   }, [token]);
+  
 
   if (token) {
     return (
@@ -136,7 +149,7 @@ function DatHang(props) {
               </div>
             </div>
             {token ? (
-              token.map((i, index) => {
+              datas.map((i, index) => {
                 t += i.soluong * i.gia_ban;
 
                 return (

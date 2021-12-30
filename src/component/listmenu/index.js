@@ -28,6 +28,7 @@ function DashBoard(props) {
   } = createActionNP;
   const { show, setShow } = useState(false);
   const [tokens, setTokens] = useState(null);
+  const [tokenPro, setTokenPro] = useState([]);
   const history = useHistory();
   useEffect(() => {
     let current = true;
@@ -36,6 +37,7 @@ function DashBoard(props) {
         await fetchListNewProductRequest();
         await fetchListChiTietMauSacRequest();
         await fetchListChiTietSizeRequest();
+        setTokenPro(localStorage.getItem("product")? JSON.parse(localStorage.getItem("product")):[])
         const tokenss = localStorage.getItem("tokenTC");
         if (tokenss) {
           try {
@@ -55,6 +57,8 @@ function DashBoard(props) {
     })();
     return () => (current = false);
   }, []);
+
+ 
   useEffect(() => {
     let current = true;
     (async () => {
@@ -115,8 +119,14 @@ function DashBoard(props) {
     setTokens(null);
   }
 
-  function showModals() {
+  function showModals() { const tokenss = localStorage.getItem("tokenTC");
+  if(tokenss){
     showModal();
+  }else{
+    history.push('/DangNhap');
+  }
+
+    
   }
   return (
     <div key={name} className="chia">
@@ -169,7 +179,7 @@ function DashBoard(props) {
               <div className="title-giohang">Giỏ hàng</div>
               <div className="cart">
                 <div className="cart-product">
-                  <div className="cart-poduct-sl">{token.length}</div>
+                  <div className="cart-poduct-sl">{tokenPro.length}</div>
                   <ShoppingCartIcon className="cart-product__icon"></ShoppingCartIcon>
                 </div>
               </div>

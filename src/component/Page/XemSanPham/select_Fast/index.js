@@ -18,7 +18,7 @@ function SelectFast(props) {
 
 	return (
 		<div className="select-fast mt-3">
-			<div className="select-fast__header">Khích thước:</div>
+			<div className="select-fast__header">Màu sắc:</div>
 			<div className="select-fast__fast">
 				<div className="select-swap">
 					{arrFast.length > 0 ? (

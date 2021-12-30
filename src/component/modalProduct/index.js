@@ -37,7 +37,7 @@ function ModalProduct(props) {
 	function handleQuantity(id, d) {
 		const i = data.findIndex((item) => item.id_giay === id);
 		const dataTamToken = data[i];
-		dataTamToken.soluong = parseInt(d) + parseInt(data[i].soluong);
+		dataTamToken.soluong =  parseInt(data[i].soluong) + parseInt(d);
 		if (i !== -1) {
 			const newlist = [...data.slice(0, i), dataTamToken, ...data.slice(i + 1)];
 			setterToken(newlist);

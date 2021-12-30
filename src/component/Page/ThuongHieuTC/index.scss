@@ -139,6 +139,11 @@ ul {
     margin: 2px;
 }
 
+.ThuongHieuTC img{
+    height: 224.66px;
+    object-fit: contain;
+}
+
 @media screen and (min-width: 1px) and (max-width: 739px) {
     .sort-cate .sort-cate-left ul li {
         width: 45%;
